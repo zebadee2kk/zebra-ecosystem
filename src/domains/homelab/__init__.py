@@ -1,0 +1,1 @@
+"""Homelab automation and management"""
