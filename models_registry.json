@@ -1,0 +1,72 @@
+{
+  "last_updated": "2026-02-21T12:00:00Z",
+  "update_frequency": "weekly",
+  "registry_version": "1.0",
+  "note": "This is a placeholder. See AI_MODEL_REGISTRY_SYSTEM.md for complete schema.",
+  
+  "models": {
+    "claude-sonnet": {
+      "provider": "Anthropic",
+      "family": "Claude",
+      "version": "3.5",
+      "status": "production",
+      "availability": "cloud_api",
+      "pricing": {
+        "input_tokens": 0.003,
+        "output_tokens": 0.015,
+        "unit": "per_1k_tokens"
+      },
+      "capabilities": {
+        "reasoning": 8,
+        "coding": 9,
+        "speed": 8,
+        "context_window": 200000
+      },
+      "trust_level": {
+        "overall": 8,
+        "security_zone": "zone_1",
+        "can_handle_sensitive": false
+      },
+      "best_for": [
+        "coding",
+        "debugging",
+        "architecture"
+      ]
+    },
+    
+    "ollama-mistral": {
+      "provider": "Mistral AI (Ollama)",
+      "family": "Mistral",
+      "version": "latest",
+      "status": "production",
+      "availability": "local_only",
+      "pricing": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "unit": "free"
+      },
+      "capabilities": {
+        "reasoning": 7,
+        "coding": 7,
+        "speed": 8,
+        "context_window": 8000
+      },
+      "trust_level": {
+        "overall": 10,
+        "security_zone": "zone_2_local",
+        "can_handle_sensitive": true
+      },
+      "best_for": [
+        "iteration",
+        "debugging",
+        "sensitive_data"
+      ]
+    }
+  },
+  
+  "_instructions": {
+    "message": "This is a minimal registry for bootstrap.",
+    "full_registry": "See AI_MODEL_REGISTRY_SYSTEM.md for complete model database with 7 models.",
+    "phase_0": "Expand this file during Phase 0 Part C following PHASE_0_EXTENDED_WITH_MODELS.md"
+  }
+}
