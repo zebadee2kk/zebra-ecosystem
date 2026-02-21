@@ -1,10 +1,48 @@
 {
-  "last_updated": "2026-02-21T12:00:00Z",
+  "last_updated": "2026-02-21T13:00:00Z",
   "update_frequency": "weekly",
-  "registry_version": "1.0",
-  "note": "This is a placeholder. See AI_MODEL_REGISTRY_SYSTEM.md for complete schema.",
+  "registry_version": "2.0",
+  "total_models": 15,
   
   "models": {
+    "claude-opus": {
+      "provider": "Anthropic",
+      "family": "Claude",
+      "version": "3.5",
+      "status": "production",
+      "availability": "cloud_api",
+      "pricing": {
+        "input_tokens": 0.015,
+        "output_tokens": 0.075,
+        "unit": "per_1k_tokens",
+        "note": "Most expensive, best reasoning"
+      },
+      "capabilities": {
+        "reasoning": 10,
+        "coding": 9,
+        "speed": 6,
+        "context_window": 200000,
+        "multimodal": true
+      },
+      "trust_level": {
+        "overall": 8,
+        "security_zone": "zone_1",
+        "can_handle_sensitive": false,
+        "data_retention": "per_anthropic_policy"
+      },
+      "best_for": [
+        "complex_reasoning",
+        "architecture_design",
+        "critical_decisions",
+        "multi_step_problems"
+      ],
+      "weaknesses": [
+        "expensive",
+        "slower_than_sonnet",
+        "overkill_for_simple_tasks"
+      ]
+    },
+    
     "claude-sonnet": {
       "provider": "Anthropic",
       "family": "Claude",
@@ -14,28 +52,344 @@
       "pricing": {
         "input_tokens": 0.003,
         "output_tokens": 0.015,
-        "unit": "per_1k_tokens"
+        "unit": "per_1k_tokens",
+        "note": "Best value for most tasks"
       },
       "capabilities": {
-        "reasoning": 8,
+        "reasoning": 9,
         "coding": 9,
         "speed": 8,
-        "context_window": 200000
+        "context_window": 200000,
+        "multimodal": true
       },
       "trust_level": {
         "overall": 8,
         "security_zone": "zone_1",
-        "can_handle_sensitive": false
+        "can_handle_sensitive": false,
+        "data_retention": "per_anthropic_policy"
       },
       "best_for": [
         "coding",
         "debugging",
-        "architecture"
+        "feature_development",
+        "code_review",
+        "general_purpose"
+      ],
+      "weaknesses": [
+        "not_quite_opus_reasoning",
+        "still_paid"
+      ]
+    },
+    
+    "claude-haiku": {
+      "provider": "Anthropic",
+      "family": "Claude",
+      "version": "3.5",
+      "status": "production",
+      "availability": "cloud_api",
+      "pricing": {
+        "input_tokens": 0.00025,
+        "output_tokens": 0.00125,
+        "unit": "per_1k_tokens",
+        "note": "Cheapest, fastest Claude"
+      },
+      "capabilities": {
+        "reasoning": 7,
+        "coding": 8,
+        "speed": 10,
+        "context_window": 200000,
+        "multimodal": true
+      },
+      "trust_level": {
+        "overall": 8,
+        "security_zone": "zone_1",
+        "can_handle_sensitive": false,
+        "data_retention": "per_anthropic_policy"
+      },
+      "best_for": [
+        "quick_questions",
+        "simple_tasks",
+        "high_volume",
+        "speed_critical"
+      ],
+      "weaknesses": [
+        "lower_reasoning",
+        "may_miss_nuance"
+      ]
+    },
+    
+    "gpt-4-turbo": {
+      "provider": "OpenAI",
+      "family": "GPT-4",
+      "version": "turbo",
+      "status": "production",
+      "availability": "cloud_api",
+      "pricing": {
+        "input_tokens": 0.01,
+        "output_tokens": 0.03,
+        "unit": "per_1k_tokens",
+        "note": "Expensive but powerful"
+      },
+      "capabilities": {
+        "reasoning": 9,
+        "coding": 8,
+        "speed": 7,
+        "context_window": 128000,
+        "multimodal": true
+      },
+      "trust_level": {
+        "overall": 7,
+        "security_zone": "zone_1",
+        "can_handle_sensitive": false,
+        "data_retention": "per_openai_policy",
+        "note": "Training on inputs unless opted out"
+      },
+      "best_for": [
+        "second_opinion",
+        "multimodal_tasks",
+        "vision_analysis",
+        "complex_reasoning"
+      ],
+      "weaknesses": [
+        "expensive",
+        "slower_than_gpt-4o",
+        "data_retention_concerns"
+      ]
+    },
+    
+    "gpt-4o": {
+      "provider": "OpenAI",
+      "family": "GPT-4",
+      "version": "4o (omni)",
+      "status": "production",
+      "availability": "cloud_api",
+      "pricing": {
+        "input_tokens": 0.0025,
+        "output_tokens": 0.01,
+        "unit": "per_1k_tokens",
+        "note": "Cheaper than turbo, faster"
+      },
+      "capabilities": {
+        "reasoning": 8,
+        "coding": 8,
+        "speed": 9,
+        "context_window": 128000,
+        "multimodal": true,
+        "audio": true
+      },
+      "trust_level": {
+        "overall": 7,
+        "security_zone": "zone_1",
+        "can_handle_sensitive": false,
+        "data_retention": "per_openai_policy"
+      },
+      "best_for": [
+        "multimodal",
+        "fast_responses",
+        "cost_effective",
+        "general_purpose"
+      ],
+      "weaknesses": [
+        "slight_quality_drop_vs_turbo",
+        "data_retention_concerns"
+      ]
+    },
+    
+    "gpt-4o-mini": {
+      "provider": "OpenAI",
+      "family": "GPT-4",
+      "version": "4o-mini",
+      "status": "production",
+      "availability": "cloud_api",
+      "pricing": {
+        "input_tokens": 0.00015,
+        "output_tokens": 0.0006,
+        "unit": "per_1k_tokens",
+        "note": "Very cheap, good for high volume"
+      },
+      "capabilities": {
+        "reasoning": 7,
+        "coding": 7,
+        "speed": 10,
+        "context_window": 128000,
+        "multimodal": true
+      },
+      "trust_level": {
+        "overall": 7,
+        "security_zone": "zone_1",
+        "can_handle_sensitive": false,
+        "data_retention": "per_openai_policy"
+      },
+      "best_for": [
+        "high_volume_simple_tasks",
+        "quick_questions",
+        "cost_optimization",
+        "batch_processing"
+      ],
+      "weaknesses": [
+        "lower_reasoning_than_full_gpt4",
+        "may_hallucinate_more"
+      ]
+    },
+    
+    "gpt-3.5-turbo": {
+      "provider": "OpenAI",
+      "family": "GPT-3.5",
+      "version": "turbo",
+      "status": "production",
+      "availability": "cloud_api",
+      "pricing": {
+        "input_tokens": 0.0005,
+        "output_tokens": 0.0015,
+        "unit": "per_1k_tokens",
+        "note": "Legacy model, still cheap and fast"
+      },
+      "capabilities": {
+        "reasoning": 6,
+        "coding": 6,
+        "speed": 10,
+        "context_window": 16385,
+        "multimodal": false
+      },
+      "trust_level": {
+        "overall": 7,
+        "security_zone": "zone_1",
+        "can_handle_sensitive": false,
+        "data_retention": "per_openai_policy"
+      },
+      "best_for": [
+        "simple_chat",
+        "legacy_compatibility",
+        "extreme_cost_optimization"
+      ],
+      "weaknesses": [
+        "outdated",
+        "poor_reasoning",
+        "gpt-4o-mini_better_value"
+      ]
+    },
+    
+    "o1": {
+      "provider": "OpenAI",
+      "family": "o1 (reasoning)",
+      "version": "1",
+      "status": "production",
+      "availability": "cloud_api",
+      "pricing": {
+        "input_tokens": 0.015,
+        "output_tokens": 0.06,
+        "unit": "per_1k_tokens",
+        "note": "Expensive, specialized for deep reasoning"
+      },
+      "capabilities": {
+        "reasoning": 10,
+        "coding": 9,
+        "speed": 4,
+        "context_window": 128000,
+        "multimodal": false,
+        "chain_of_thought": true
+      },
+      "trust_level": {
+        "overall": 7,
+        "security_zone": "zone_1",
+        "can_handle_sensitive": false,
+        "data_retention": "per_openai_policy"
+      },
+      "best_for": [
+        "complex_math",
+        "logic_problems",
+        "scientific_reasoning",
+        "challenging_puzzles"
+      ],
+      "weaknesses": [
+        "very_expensive",
+        "very_slow",
+        "overkill_for_most_tasks"
+      ]
+    },
+    
+    "grok-2": {
+      "provider": "xAI (X/Twitter)",
+      "family": "Grok",
+      "version": "2",
+      "status": "production",
+      "availability": "cloud_api",
+      "pricing": {
+        "input_tokens": 0.002,
+        "output_tokens": 0.01,
+        "unit": "per_1k_tokens",
+        "note": "Competitive pricing, real-time X data"
+      },
+      "capabilities": {
+        "reasoning": 8,
+        "coding": 8,
+        "speed": 8,
+        "context_window": 128000,
+        "multimodal": true,
+        "real_time_data": true,
+        "x_integration": true
+      },
+      "trust_level": {
+        "overall": 6,
+        "security_zone": "zone_1",
+        "can_handle_sensitive": false,
+        "data_retention": "per_xai_policy",
+        "note": "Newer provider, less established privacy policy"
+      },
+      "best_for": [
+        "real_time_information",
+        "x_twitter_data",
+        "current_events",
+        "social_media_analysis",
+        "less_censored_responses"
+      ],
+      "weaknesses": [
+        "newer_less_proven",
+        "privacy_concerns",
+        "x_integration_may_leak_context"
+      ]
+    },
+    
+    "grok-2-mini": {
+      "provider": "xAI (X/Twitter)",
+      "family": "Grok",
+      "version": "2-mini",
+      "status": "production",
+      "availability": "cloud_api",
+      "pricing": {
+        "input_tokens": 0.0002,
+        "output_tokens": 0.001,
+        "unit": "per_1k_tokens",
+        "note": "Very cheap, fast"
+      },
+      "capabilities": {
+        "reasoning": 6,
+        "coding": 7,
+        "speed": 10,
+        "context_window": 128000,
+        "multimodal": false,
+        "real_time_data": true
+      },
+      "trust_level": {
+        "overall": 6,
+        "security_zone": "zone_1",
+        "can_handle_sensitive": false,
+        "data_retention": "per_xai_policy"
+      },
+      "best_for": [
+        "high_volume_simple_tasks",
+        "real_time_quick_lookups",
+        "cost_optimization"
+      ],
+      "weaknesses": [
+        "lower_quality",
+        "privacy_concerns",
+        "less_proven"
       ]
     },
     
     "ollama-mistral": {
-      "provider": "Mistral AI (Ollama)",
+      "provider": "Mistral AI (via Ollama)",
       "family": "Mistral",
       "version": "latest",
       "status": "production",
@@ -43,30 +397,279 @@
       "pricing": {
         "input_tokens": 0,
         "output_tokens": 0,
-        "unit": "free"
+        "unit": "free",
+        "hardware_cost": "runs on T600 GPU"
       },
       "capabilities": {
         "reasoning": 7,
         "coding": 7,
         "speed": 8,
-        "context_window": 8000
+        "context_window": 8000,
+        "multimodal": false
       },
       "trust_level": {
         "overall": 10,
         "security_zone": "zone_2_local",
-        "can_handle_sensitive": true
+        "can_handle_sensitive": true,
+        "data_retention": "none_local_only",
+        "air_gapped_capable": true
       },
       "best_for": [
         "iteration",
         "debugging",
-        "sensitive_data"
+        "sensitive_data",
+        "unlimited_usage",
+        "cost_free_development"
+      ],
+      "weaknesses": [
+        "smaller_context_window",
+        "lower_reasoning_than_cloud",
+        "requires_gpu"
+      ]
+    },
+    
+    "ollama-llama3": {
+      "provider": "Meta (via Ollama)",
+      "family": "Llama",
+      "version": "3 (70B)",
+      "status": "production",
+      "availability": "local_only",
+      "pricing": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "unit": "free",
+        "hardware_cost": "requires more RAM than Mistral"
+      },
+      "capabilities": {
+        "reasoning": 8,
+        "coding": 8,
+        "speed": 6,
+        "context_window": 8000,
+        "multimodal": false
+      },
+      "trust_level": {
+        "overall": 10,
+        "security_zone": "zone_2_local",
+        "can_handle_sensitive": true,
+        "data_retention": "none_local_only",
+        "air_gapped_capable": true
+      },
+      "best_for": [
+        "complex_local_reasoning",
+        "sensitive_data_analysis",
+        "offline_work",
+        "maximum_privacy"
+      ],
+      "weaknesses": [
+        "slower_than_mistral",
+        "more_hardware_intensive",
+        "may_not_fit_on_t600"
+      ]
+    },
+    
+    "ollama-codellama": {
+      "provider": "Meta (via Ollama)",
+      "family": "CodeLlama",
+      "version": "34B",
+      "status": "production",
+      "availability": "local_only",
+      "pricing": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "unit": "free",
+        "hardware_cost": "optimized for code generation"
+      },
+      "capabilities": {
+        "reasoning": 6,
+        "coding": 9,
+        "speed": 7,
+        "context_window": 16000,
+        "multimodal": false,
+        "code_specialized": true
+      },
+      "trust_level": {
+        "overall": 10,
+        "security_zone": "zone_2_local",
+        "can_handle_sensitive": true,
+        "data_retention": "none_local_only",
+        "air_gapped_capable": true
+      },
+      "best_for": [
+        "code_generation",
+        "code_completion",
+        "refactoring",
+        "sensitive_codebase"
+      ],
+      "weaknesses": [
+        "poor_general_reasoning",
+        "code_only",
+        "larger_context_needs_more_ram"
+      ]
+    },
+    
+    "perplexity-pro": {
+      "provider": "Perplexity AI",
+      "family": "Perplexity",
+      "version": "pro",
+      "status": "production",
+      "availability": "cloud_api",
+      "pricing": {
+        "subscription": 20,
+        "unit": "per_month",
+        "note": "Unlimited queries with Pro"
+      },
+      "capabilities": {
+        "reasoning": 7,
+        "coding": 6,
+        "speed": 8,
+        "context_window": 32000,
+        "multimodal": false,
+        "web_search": true,
+        "citations": true
+      },
+      "trust_level": {
+        "overall": 7,
+        "security_zone": "zone_1",
+        "can_handle_sensitive": false,
+        "data_retention": "per_perplexity_policy"
+      },
+      "best_for": [
+        "research",
+        "current_information",
+        "cited_answers",
+        "fact_checking"
+      ],
+      "weaknesses": [
+        "not_great_for_coding",
+        "web_dependent",
+        "may_cite_incorrect_sources"
+      ]
+    },
+    
+    "github-copilot": {
+      "provider": "GitHub (Microsoft/OpenAI)",
+      "family": "Copilot",
+      "version": "current",
+      "status": "production",
+      "availability": "ide_integration",
+      "pricing": {
+        "subscription": 10,
+        "unit": "per_month",
+        "note": "Free for verified students, open source maintainers"
+      },
+      "capabilities": {
+        "reasoning": 5,
+        "coding": 9,
+        "speed": 10,
+        "context_window": "file_based",
+        "multimodal": false,
+        "inline_completion": true
+      },
+      "trust_level": {
+        "overall": 6,
+        "security_zone": "zone_1_with_caution",
+        "can_handle_sensitive": false,
+        "data_retention": "trains_on_code",
+        "note": "Sends code to cloud for suggestions"
+      },
+      "best_for": [
+        "inline_code_completion",
+        "boilerplate_generation",
+        "pattern_repetition",
+        "fast_coding"
+      ],
+      "weaknesses": [
+        "sends_code_to_cloud",
+        "poor_complex_reasoning",
+        "may_suggest_insecure_code",
+        "copyright_concerns"
       ]
     }
   },
   
-  "_instructions": {
-    "message": "This is a minimal registry for bootstrap.",
-    "full_registry": "See AI_MODEL_REGISTRY_SYSTEM.md for complete model database with 7 models.",
-    "phase_0": "Expand this file during Phase 0 Part C following PHASE_0_EXTENDED_WITH_MODELS.md"
+  "decision_matrix": {
+    "architecture_design": ["claude-opus", "o1", "gpt-4-turbo"],
+    "coding_features": ["claude-sonnet", "gpt-4o", "ollama-codellama"],
+    "debugging_iteration": ["ollama-mistral", "claude-sonnet", "gpt-4o-mini"],
+    "sensitive_data": ["ollama-mistral", "ollama-llama3", "ollama-codellama"],
+    "research": ["perplexity-pro", "grok-2", "gpt-4o"],
+    "real_time_info": ["grok-2", "perplexity-pro"],
+    "cost_optimization": ["ollama-mistral", "gpt-4o-mini", "claude-haiku"],
+    "inline_completion": ["github-copilot"],
+    "complex_reasoning": ["claude-opus", "o1", "gpt-4-turbo"],
+    "high_volume_simple": ["gpt-4o-mini", "claude-haiku", "grok-2-mini"],
+    "multimodal": ["gpt-4o", "claude-sonnet", "grok-2"],
+    "offline_airgapped": ["ollama-mistral", "ollama-llama3", "ollama-codellama"]
+  },
+  
+  "security_zones": {
+    "zone_1_cloud_safe": {
+      "description": "Cloud AI with placeholders only",
+      "models": [
+        "claude-opus", "claude-sonnet", "claude-haiku",
+        "gpt-4-turbo", "gpt-4o", "gpt-4o-mini", "gpt-3.5-turbo", "o1",
+        "perplexity-pro"
+      ],
+      "rules": "No real credentials, IPs, hostnames, or sensitive data"
+    },
+    "zone_1_with_caution": {
+      "description": "Cloud AI that sees your code in IDE",
+      "models": ["github-copilot"],
+      "rules": "Avoid in repos with credentials or proprietary algorithms"
+    },
+    "zone_1_lower_trust": {
+      "description": "Newer providers, less established privacy",
+      "models": ["grok-2", "grok-2-mini"],
+      "rules": "Use only for non-sensitive, general tasks"
+    },
+    "zone_2_local": {
+      "description": "Local inference, data stays on your network",
+      "models": [
+        "ollama-mistral", "ollama-llama3", "ollama-codellama"
+      ],
+      "rules": "Safe for internal IPs, configs, sensitive analysis"
+    },
+    "zone_3_airgapped": {
+      "description": "Completely offline, maximum security",
+      "models": [
+        "ollama-mistral", "ollama-llama3", "ollama-codellama"
+      ],
+      "rules": "Trading algorithms, financial data, maximum sensitivity"
+    }
+  },
+  
+  "cost_tiers": {
+    "free": {
+      "models": ["ollama-mistral", "ollama-llama3", "ollama-codellama"],
+      "note": "Use these first for iteration and debugging"
+    },
+    "cheap": {
+      "models": ["gpt-4o-mini", "claude-haiku", "grok-2-mini"],
+      "cost_range": "$0.0001-0.0015 per 1k tokens"
+    },
+    "moderate": {
+      "models": ["gpt-4o", "claude-sonnet", "grok-2"],
+      "cost_range": "$0.002-0.015 per 1k tokens"
+    },
+    "expensive": {
+      "models": ["claude-opus", "gpt-4-turbo", "o1"],
+      "cost_range": "$0.01-0.075 per 1k tokens",
+      "note": "Reserve for critical decisions only"
+    },
+    "subscription": {
+      "models": ["perplexity-pro", "github-copilot"],
+      "cost": "$10-20 per month flat"
+    }
+  },
+  
+  "usage_recommendations": {
+    "daily_driver": "ollama-mistral (free, unlimited)",
+    "architecture": "claude-opus (best reasoning, worth the cost)",
+    "coding": "claude-sonnet (best balance quality/cost)",
+    "research": "perplexity-pro (citations, current info)",
+    "second_opinion": "gpt-4o (different perspective)",
+    "real_time": "grok-2 (X integration, current events)",
+    "sensitive": "ollama-mistral (local, safe)",
+    "trading": "ollama-llama3 (airgapped, maximum security)"
   }
 }
