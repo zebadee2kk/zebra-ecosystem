@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Models: 15](https://img.shields.io/badge/AI_models-15-blue.svg)](models_registry.json)
 
 ---
 
@@ -14,7 +15,7 @@ A **production-ready Python monorepo** that solves three critical problems for A
 
 1. **🔒 Security**: 3-zone model ensures sensitive data never leaks to cloud AI
 2. **💰 Cost Control**: Automatic tracking prevents expensive token waste
-3. **🧠 Model Intelligence**: Living registry optimizes AI model selection
+3. **🧠 Model Intelligence**: Living registry with **15 AI models** optimizes selection
 
 **Built for**: Homelab automation, trading systems, AI agents, and personal productivity tools.
 
@@ -55,12 +56,14 @@ make cost-weekly
 ### Start Here
 1. **[START_HERE.md](START_HERE.md)** - Executive summary and 10-day timeline
 2. **[COMPLETE_PROJECT_SUMMARY.md](COMPLETE_PROJECT_SUMMARY.md)** - Overview of all systems
-3. **[PHASE_0_EXTENDED_WITH_MODELS.md](PHASE_0_EXTENDED_WITH_MODELS.md)** - Today's action items
+3. **[NEXT_STEPS.md](NEXT_STEPS.md)** - What to do right now
+4. **[QUICK_START.md](QUICK_START.md)** - 15-minute setup
 
 ### Core Frameworks
-- **Security**: [SECURITY_ARCHITECTURE.md](docs/SECURITY_ARCHITECTURE.md)
+- **Security**: [docs/SECURITY_ARCHITECTURE.md](docs/SECURITY_ARCHITECTURE.md)
 - **Cost Control**: [COST_MANAGEMENT_STRATEGY.md](COST_MANAGEMENT_STRATEGY.md)
 - **Model Intelligence**: [AI_MODEL_REGISTRY_SYSTEM.md](AI_MODEL_REGISTRY_SYSTEM.md)
+- **Model Comparison**: [docs/MODEL_COMPARISON.md](docs/MODEL_COMPARISON.md) ⭐ NEW
 
 ### Architecture
 - **[ZEBRA_COMPLETE_BRIEF.md](ZEBRA_COMPLETE_BRIEF.md)** - Master architecture reference
@@ -138,30 +141,54 @@ make model-report
 
 ---
 
-## 🧠 Model Intelligence
+## 🧠 Model Intelligence (15 Models Tracked)
 
-### 7 AI Models Cataloged
+### Anthropic Claude (3 models)
+- **Claude Opus**: Best reasoning (10/10), expensive - Architecture, critical decisions
+- **Claude Sonnet**: Best value (9/10) - Daily coding, general purpose ⭐ RECOMMENDED
+- **Claude Haiku**: Fastest (10/10), cheap - Quick tasks, high volume
 
-- **Claude Opus**: Best reasoning (10/10), expensive
-- **Claude Sonnet**: Best value (9/10 reasoning, 8/10 speed)
-- **Claude Haiku**: Fastest (10/10 speed), cheap
-- **Ollama Mistral**: Local, FREE, good for iteration
-- **Ollama Llama2**: Local, FREE, stable baseline
-- **GPT-4 Turbo**: Second opinions
-- **Perplexity**: Research with web search
+### OpenAI GPT (5 models)
+- **GPT-4 Turbo**: Strong reasoning (9/10) - Second opinions, multimodal
+- **GPT-4o**: Fast multimodal (9/10 speed) - General purpose, cost-effective
+- **GPT-4o Mini**: Very cheap (7/10) - High volume simple tasks
+- **GPT-3.5 Turbo**: Legacy (use 4o-mini instead)
+- **o1**: Maximum reasoning (10/10), slow - Complex math, logic puzzles
+
+### xAI Grok (2 models)
+- **Grok 2**: Real-time data (8/10) - Current events, X/Twitter integration
+- **Grok 2 Mini**: Cheap + fast (10/10 speed) - High volume, real-time lookups
+
+### Local Ollama (3 models) ⭐ FREE
+- **Ollama Mistral**: Local, FREE, 10/10 trust - Iteration, sensitive data ⭐ START HERE
+- **Ollama Llama3**: Complex reasoning (8/10) - Sensitive analysis, offline work
+- **Ollama CodeLlama**: Code specialist (9/10 coding) - Code generation, refactoring
+
+### Other Tools (2 models)
+- **Perplexity Pro**: Research + citations - Current info, fact-checking
+- **GitHub Copilot**: Inline completion (9/10 coding) - Boilerplate, IDE integration
 
 ### Decision Matrix
 
 ```bash
-# See which model for which task
-cat docs/MODEL_DECISION_MATRIX.md
+# See complete comparison table
+cat docs/MODEL_COMPARISON.md
 
-# View all available models
+# View all available models with KPIs
 make model-registry
 
 # Check for new models
 make model-check
 ```
+
+**Quick Guide**:
+- **Iteration/Debugging** → Ollama Mistral (FREE, unlimited)
+- **Daily Coding** → Claude Sonnet (best value)
+- **Architecture** → Claude Opus (best reasoning)
+- **Research** → Perplexity Pro (citations)
+- **Real-time Info** → Grok 2 (X integration)
+- **Sensitive Data** → Ollama only (local, safe)
+- **Trading/Financial** → Ollama air-gapped (maximum security)
 
 ---
 
@@ -172,7 +199,7 @@ make model-check
 ```bash
 # Before asking any AI:
 # 1. Check: templates/MODEL_SELECTION_CHECKLIST.md
-# 2. Pick model: docs/MODEL_DECISION_MATRIX.md
+# 2. Pick model: docs/MODEL_COMPARISON.md
 # 3. Use placeholders for sensitive data
 # 4. Ask question
 # 5. Log usage
@@ -206,9 +233,10 @@ make model-check      # New models available
 ### Phase 0: Foundation ✅
 - [x] Security framework (3-zone model)
 - [x] Cost tracking system
-- [x] Model registry (7 models)
+- [x] Model registry (15 models) ⭐ EXPANDED
 - [x] Pre-commit hooks
 - [x] Documentation
+- [x] Model comparison guide ⭐ NEW
 
 ### Phase 1: Scaffold (In Progress)
 - [ ] Directory structure
@@ -231,6 +259,7 @@ This is a personal project, but suggestions and issues are welcome!
 1. Check [SECURITY_ARCHITECTURE.md](docs/SECURITY_ARCHITECTURE.md) before contributing
 2. Use [MODEL_SELECTION_CHECKLIST.md](templates/MODEL_SELECTION_CHECKLIST.md) for AI assistance
 3. Follow the pre-commit hooks (automatically enforced)
+4. See [CONTRIBUTING.md](CONTRIBUTING.md) for details
 
 ---
 
@@ -243,7 +272,9 @@ MIT License - See [LICENSE](LICENSE) for details
 ## 🙏 Acknowledgments
 
 - **Anthropic Claude** - AI architecture and development assistance
-- **Ollama** - Local AI inference
+- **OpenAI GPT** - Second opinions and multimodal capabilities
+- **xAI Grok** - Real-time information and X integration
+- **Ollama** - Local AI inference (FREE, unlimited)
 - **Proxmox Community** - Homelab inspiration
 
 ---
@@ -259,4 +290,6 @@ MIT License - See [LICENSE](LICENSE) for details
 
 **Built with AI assistance. Secured by design. Optimized for cost.**
 
-*Start with [START_HERE.md](START_HERE.md) → Follow [PHASE_0_EXTENDED_WITH_MODELS.md](PHASE_0_EXTENDED_WITH_MODELS.md) → Build in 10 days*
+**15 AI models tracked. 3 security zones. $20-30/month total cost.**
+
+*Start with [START_HERE.md](START_HERE.md) → Follow [NEXT_STEPS.md](NEXT_STEPS.md) → Build in 10 days*
