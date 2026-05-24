@@ -9,6 +9,20 @@
 
 ---
 
+## Repository lifecycle status
+
+Status: **active public reference repository**.
+
+This repository remains public and active as a reference for the Zebra ecosystem's AI-assisted development patterns: security, cost control, model intelligence, homelab automation, trading systems, and AI agents.
+
+No canonical successor repository or imported canonical path has been verified. In particular, this lifecycle review did not find evidence that `zebra-ecosystem` has already been imported into `zebadee2kk/agent-toolkit`, `zebadee2kk/HamOS`, `zebadee2kk/portfolio-management`, or another canonical successor.
+
+Cleanup, archive, transfer, rename, visibility, or repository-settings changes are not part of this status note. Any future lifecycle change needs a separate explicit approval gate.
+
+See [STATUS.md](STATUS.md) for the evidence checked and current decision posture.
+
+---
+
 ## 📋 What Is This?
 
 A **production-ready Python monorepo** that solves three critical problems for AI-assisted development:
